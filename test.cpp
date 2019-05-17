@@ -2,15 +2,20 @@
 #include <math.h>
 
 // Complex numbers test
+TEST(ComplexNumberTests, constructorTest) {
+	Complex x1(3.25, 3.33), x2;
+	EXPECT_EQ(x1, Complex(3.25, 3.33));
+	EXPECT_EQ(x2, Complex(0, 0));
+}
+
 TEST(ComplexNumbersTests, getSetTest) {
-	Complex x1(2.0, 5.0), x2;
+	Complex x1(2.0, 5.0);
 	x1.im(9.0);
 	EXPECT_EQ(x1, Complex(2.0, 9.0));
 	x1.re(-9.0);
 	EXPECT_EQ(x1, Complex(-9.0, 9.0));
 	EXPECT_EQ(x1.im(), 9.0);
 	EXPECT_EQ(x1.re(), -9.0);
-	EXPECT_EQ(x2, Complex(0, 0));
 }
 
 TEST(ComplexNumbersTests, sumTest) {
@@ -54,8 +59,14 @@ TEST(ComplexNumbersTests, powTest) {
 }
 
 // Polar test
+TEST(PolarNumberTests, constructorTest) {
+	Polar x3(2.0, 3.0), x4;
+	EXPECT_EQ(x3, Polar(2.0, 3.0));
+	EXPECT_EQ(x4, Polar(0, 0));
+}
+
 TEST(PolarNumbersTests, getSetTest) {
-	Polar x1(2.0, 5.0), x2(2.0, 0.0), x3;
+	Polar x1(2.0, 5.0), x2(2.0, 0.0);
 	x1.p(9.0);
 	EXPECT_EQ(x1, Polar(2.0, 9.0));
 	x1.r(-9.0);
@@ -64,7 +75,6 @@ TEST(PolarNumbersTests, getSetTest) {
 	EXPECT_EQ(x1.r(), -9.0);
 	x2.r(13.0);
 	EXPECT_EQ(x2, Polar(13.0, 0.0));
-	EXPECT_EQ(x3, Polar(0, 0));
 }
 
 TEST(PolarNumbersTests, sumTest) {

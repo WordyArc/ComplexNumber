@@ -28,17 +28,17 @@ public:
 
 	long double my_sqr() const;
 
-	bool operator==(const Complex &) const;
+	bool operator==(const Complex&) const;
 
-	friend Complex operator+(const Complex &, const Complex &);
-	friend Complex operator-(const Complex &, const Complex &);
-	friend Complex operator*(const Complex &, const Complex &);
-	friend Complex operator/(Complex, const Complex &);
+	friend Complex operator+(const Complex&, const Complex&);
+	friend Complex operator-(const Complex&, const Complex&);
+	friend Complex operator*(const Complex&, const Complex&);
+	friend Complex operator/(const Complex&, const Complex&);
 
 	long double abs() const;
 	long double arg() const;
 
-	friend Complex pow(const Complex &, uint32_t);
+	friend Complex pow(const Complex&, uint32_t);
 private:
 	long double real, imag;
 };
@@ -56,12 +56,12 @@ public:
 
 	~Polar() = default;
 
-	bool operator==(const Polar &) const;
+	bool operator==(const Polar&) const;
 
-	friend Polar operator+(const Polar &, const Polar &);
-	friend Polar operator-(const Polar &, const Polar &);
-	friend Polar operator*(Polar, const Polar &);
-	friend Polar operator/(Polar, const Polar &);
+	friend Polar operator+(const Polar&, const Polar&);
+	friend Polar operator-(const Polar&, const Polar&);
+	friend Polar operator*(const Polar&, const Polar&);
+	friend Polar operator/(const Polar&, const Polar&);
 
 	friend Polar pow(Polar, uint32_t);
 private:

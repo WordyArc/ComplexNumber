@@ -37,28 +37,28 @@ long double Complex::my_sqr() const {
 }
 
 
-bool Complex::operator==(const Complex &_c) const {
+bool Complex::operator==(const Complex& _c) const {
 	return fabsl(real - _c.real) < EPS && fabsl(imag - _c.imag) < EPS;
 }
 
 
-Complex operator+(const Complex &_cLeft, const Complex &_cRight) {
+Complex operator+(const Complex& _cLeft, const Complex& _cRight) {
 	Complex c = Complex(_cLeft.real + _cRight.real, _cLeft.imag + _cRight.imag);
 	return c;
 }
 
-Complex operator-(const Complex &_cLeft, const Complex &_cRight) {
+Complex operator-(const Complex& _cLeft, const Complex& _cRight) {
 	Complex c = Complex(_cLeft.real - _cRight.real, _cLeft.imag - _cRight.imag);
 	return c;
 }
 
-Complex operator*(const Complex &_cLeft, const Complex &_cRight) {
+Complex operator*(const Complex& _cLeft, const Complex& _cRight) {
 	long double real = (_cLeft.real * _cRight.real - _cLeft.imag * _cRight.imag);
 	long double imag = (_cLeft.real * _cRight.imag + _cLeft.imag * _cRight.real);
 	return Complex(real,  imag);
 }
 
-Complex operator/(Complex _cLeft, const Complex &_cRight) {
+Complex operator/(const Complex& _cLeft, const Complex& _cRight) {
 	long double denominator = (_cRight.real * _cRight.real + _cRight.imag * _cRight.imag);
 	long double real = ((_cLeft.real * _cRight.real + _cLeft.imag * _cRight.imag) / denominator);
 	long double imag = ((_cLeft.imag * _cRight.real - _cLeft.real * _cRight.imag) / denominator);
@@ -73,7 +73,7 @@ long double Complex::arg() const {
 	return atan2l(imag, real);
 }
 
-Complex pow(const Complex &x, uint32_t y) {
+Complex pow(const Complex& x, uint32_t y) {
 	return Complex(pow(Polar(x), y));
 }
 
@@ -105,23 +105,23 @@ void Polar::p(long double _val) {
 	phi = _val;
 }
 
-bool Polar::operator==(const Polar &_val) const {
+bool Polar::operator==(const Polar& _val) const {
 	return Complex(*this) == Complex(_val);
 }
 
-Polar operator+(const Polar &_pLeft, const Polar &_pRight) {
+Polar operator+(const Polar& _pLeft, const Polar& _pRight) {
 	return Polar(Complex(_pLeft) + Complex(_pRight));
 }
 
-Polar operator-(const Polar &_pLeft, const Polar &_pRight) {
+Polar operator-(const Polar& _pLeft, const Polar& _pRight) {
 	return Polar(Complex(_pLeft) - Complex(_pRight));
 }
 
-Polar operator*(Polar _pLeft, const Polar &_pRight) {
+Polar operator*(const Polar& _pLeft, const Polar& _pRight) {
 	return Polar(Complex(_pLeft) * Complex(_pRight));
 }
 
-Polar operator/(Polar _pLeft, const Polar &_pRight) {
+Polar operator/(const Polar& _pLeft, const Polar& _pRight) {
 	return Polar(Complex(_pLeft) / Complex(_pRight));
 }
 
