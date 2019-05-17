@@ -1,12 +1,9 @@
 #include "pch.h"
-#include <cmath>
-#include <string>
+#include <math.h>
 
 //Complex class
 Complex::Complex(long double _re, long double _im) : real(_re), imag(_im) {}
-
 Complex::Complex(long double _val) : real(_val), imag(0) {}
-
 Complex::Complex() : real(0), imag(0) {}
 
 Complex::Complex(Polar n) {
@@ -80,7 +77,7 @@ Complex pow(const Complex& x, uint32_t y) {
 
 //Polar Class
 Polar::Polar(long double _rho, long double _phi) : rho(_rho), phi(_phi) {}
-
+Polar::Polar(long double _val) : rho(_val), phi(0) {}
 Polar::Polar() : rho(0), phi(0) {}
 
 Polar::Polar(Complex n) {
@@ -118,16 +115,20 @@ Polar operator-(const Polar& _pLeft, const Polar& _pRight) {
 }
 
 Polar operator*(const Polar& _pLeft, const Polar& _pRight) {
-	return Polar(Complex(_pLeft) * Complex(_pRight));
+	long double real = (_pLeft.rho * _pRight.rho);
+	long double imag = (_pLeft.phi + _pRight.phi);
+	return Polar(real, imag);
 }
 
 Polar operator/(const Polar& _pLeft, const Polar& _pRight) {
-	return Polar(Complex(_pLeft) / Complex(_pRight));
+	long double real = (_pLeft.rho / _pRight.rho);
+	long double imag = (_pLeft.phi - _pRight.phi);
+	return Polar(real, imag);
 }
 
 
 Polar pow(Polar x, uint32_t y) {
 	x.r(powl(x.r(), y));
 	x.p(x.p() * y);
-	return Polar(Complex(x));
+	return x;
 }

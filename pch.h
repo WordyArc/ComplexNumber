@@ -46,6 +46,7 @@ private:
 class Polar {
 public:
 	Polar(long double, long double);
+	explicit Polar(long double);
 	Polar();
 	explicit Polar(Complex);
 
